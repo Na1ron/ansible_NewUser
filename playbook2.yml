@@ -10,7 +10,7 @@
     publickey: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIfL+AuewtJDR00J/JdYbj9zHQRH/p7Yi3ZcZulMJYW/ student22@students-vm'
 
   tasks:
-  - name: Include OS-specific variables.
+  - name: Autocheck os family RedHat/Debian
     include_vars: "{{ ansible_os_family }}.yml"
 
   - name: Create a new user
@@ -21,7 +21,7 @@
       create_home: yes
       state: present
 
-  - name: Ensure .ssh directory exists
+  - name: Creating .ssh dir
     file:
       path: "/home/{{ username }}/.ssh"
       state: directory
